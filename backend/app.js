@@ -8,7 +8,7 @@ const path = require('path');
 // require('./middlewares/passport_google_setup')
 // require('./middlewares/passport_github_setup')
 // const router_web = require('./routes/router_web') // Retreive the web endpoints
-// const router_api = require('./routes/router_api') // Retreive the API endpoints 
+const productsRoutes = require('./routes/productsRoutes') // Retreive the API endpoints 
 
 const app = express()
 const port = process.env.PORT
@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }))
 // app.use(cookieParser());
 
 // app.use('/', router_web) // Web endpoints
-app.use('/api', router_api) // API endpoints
+app.use('/api/products', productsRoutes) // API endpoints
 
 // Error handling in case of mistyping URL
 app.get('*', (req, res) => {
