@@ -1,19 +1,15 @@
 const mongoose = require('../utils/nosql_db')
 
 const productSchema = new mongoose.Schema({
-    productTitle: {
+    title: {
         type: String,
         required: true
     },
-    productDescription: {
-        type: String,
+    rating: {
+        type: Number,
         required: true
-    },
-    productPrice: {
-        type: String,
-        required: true
-    },
-    productStock: {
+    },    
+    company: {
         type: String,
         required: true
     },
@@ -21,6 +17,14 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    price: {
+        type: Number,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
 })
 
-module.exports = mongoose.model('product', productSchema)
+module.exports = mongoose.model('products', productSchema)

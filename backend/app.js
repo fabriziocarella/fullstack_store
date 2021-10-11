@@ -25,12 +25,12 @@ app.use("/utils", express.static(path.join(__dirname, 'utils')));
 //Middlewares
 // app.use(passport.initialize()); // Used to initialize passport
 // app.use(passport.session()); // Used to persist login sessions
-// app.use(express.json()) //Para convertir a JSON
-// app.use(express.urlencoded({ extended: false }))
+app.use(express.json()) //Para convertir a JSON
+app.use(express.urlencoded({ extended: false }))
 // app.use(cookieParser());
 
 // app.use('/', router_web) // Web endpoints
-// app.use('/api', router_api) // API endpoints
+app.use('/api', router_api) // API endpoints
 
 // Error handling in case of mistyping URL
 app.get('*', (req, res) => {
