@@ -8,7 +8,7 @@ const pool =  new pg.Pool({
 });
 
 pool.connect()
-.then(client => console.log('connection to PostGres established'))
+.then(client => console.log('connection to PostGres Database established'))
 .catch(error => console.log(error))
 
 module.exports = pool
