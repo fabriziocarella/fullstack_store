@@ -1,32 +1,14 @@
-const { pool, client } = require('../utils/sql_db')
-
+const model = require('../models/products')
 const api = {
-    getAllProducts: async () => {
+    products: async (req, res) => {
         try {
-            const response = await pool.query('SELECT * FROM products')
-            return response.rows
+            const response = await model.getAllProducts()
+            res.status(200).json(response.rows);
         } catch (err) {
-            console.log(err.stack)
+            res.status(400).json({
+                error: error.message
+            });
         }
     },
-    getProduct: async (title) => {
-        try {
-            const response = await pool.query('SELECT * FROM users WHERE title=$1', [title])
-            return response.rows
-        } catch (err) {
-            console.log(err.stack)
-        }
-    }
 }
 module.exports = api
-
-// getProductByName: async (req, res) => {
-//     try {
-//         const product = await Product.findBy({})
-//         res.status(200).json(products)
-//     } catch (error) {
-//         res.status(400).json({
-//             error: error.message
-//         });
-//     }
-// }

@@ -1,16 +1,15 @@
 const express = require('express')
 require('dotenv').config()
 require('./utils/sql_db') // Runs SQL Database with Postgres
-const path = require('path');
-// const router_web = require('./routes/router_web') // Retreive the web endpoints
+// const path = require('path');
 const productsRoutes = require('./routes/productsRoutes') // Retreive the API endpoints 
 
 const app = express()
 const port = process.env.PORT
 
 // Uso de archivos estáticos
-app.use("/public", express.static(path.join(__dirname, 'public')));
-app.use("/utils", express.static(path.join(__dirname, 'utils')));
+// app.use("/public", express.static(path.join(__dirname, 'public')));
+// app.use("/utils", express.static(path.join(__dirname, 'utils')));
 
 //Middlewares
 app.use(express.json()) //Para convertir a JSON
