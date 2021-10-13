@@ -1,6 +1,7 @@
 const express = require('express')
 require('dotenv').config()
 require('./utils/sql_db') // Runs SQL Database with Postgres
+const cors = require('cors')
 // const path = require('path');
 const productsRoutes = require('./routes/productsRoutes') // Retreive the API endpoints 
 
@@ -14,8 +15,7 @@ const port = process.env.PORT
 //Middlewares
 app.use(express.json()) //Para convertir a JSON
 app.use(express.urlencoded({ extended: false }))
-// app.use(cookieParser());
-
+app.use(cors())
 // app.use('/', router_web) // Web endpoints
 app.use('/api', productsRoutes) // API endpoints
 

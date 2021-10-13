@@ -4,7 +4,7 @@ const products = {
     getAllProducts: async () => {
         try {
             const response = await pool.query(`SELECT * FROM products`)
-            console.log(response);
+            // console.log(response);
             return response
         } catch (err) {
             console.log(err.stack)
