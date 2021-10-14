@@ -10,7 +10,9 @@ import { productContext } from './context/productContext';
 
 function App() {
   const [games, setGames] = useState([])
-  const videogames = { games, setGames }
+  const [ search, setSearch ] = useState("")
+
+  const videogames = { games, setGames, search, setSearch }
 
   return (
     <div className="app">

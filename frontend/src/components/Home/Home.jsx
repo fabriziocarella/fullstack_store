@@ -8,20 +8,17 @@ import { productContext } from "../../context/productContext";
 const Home = () => {
   const { games, setGames } = useContext(productContext)
   const { search, setSearch } = useContext(productContext)
+  const [filtered, setFiltered] = useState([])
 
-  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
 
   useEffect(() => {
     (() => {
       try {
-        setLoading(true);
         axios.get(`http://localhost:5000/api/products/`)
           .then(response => {
             setGames(games.concat(response.data))
-            setLoading(false);
-            // console.log(games);
           })
       } catch (e) {
         console.log(e);
@@ -34,20 +31,35 @@ const Home = () => {
   const currentGames = games.slice(indexOfFirstPost, indexOfLastPost);
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
-  // const handleChange = async (e) => {
-  //   setSearch(e.target.value)
-  //   await new Promise(resolve => setTimeout(resolve, 4000))
-  //   e.target.value = ""
-  // }
-  // onChange={handleChange}
+
+
+  const handleChange = async (e) => {
+    let value = e.target.value.toString()
+    setSearch(value)
+    // if (search) {
+    //   let filteredGame = games.filter((game) => {
+    //     if (game.title.toString().toLowerCase().includes(search.toLowerCase())) {
+    //       return game
+    //     } else {
+    //       return null
+    //     }
+    //   })
+    //   setFiltered(filteredGame)
+    // }
+  }
+
   return (
     <section className="home">
       <p>Insert the game you want to know more about them or just search by console!</p>
       <div>
-        <input type="text" name="game_maker" placeholder="Search by game or console!" />
-        <input type="button" value="Search!" />
+        <input type="text" name="game_maker" placeholder="Search by game or console!" onChange={handleChange} />
       </div>
-      <ProductList currentGames={currentGames} loading={loading} />
+      {/* {filtered.length !== 0
+        ? <><ProductList currentGames={currentGames} games={filtered} loading={loading} />
+          <Pagination postsPerPage={postsPerPage} totalGames={filtered.length} paginate={paginate} /> </>
+        : <><ProductList currentGames={currentGames} games={games} loading={loading} />
+          <Pagination postsPerPage={postsPerPage} totalGames={games.length} paginate={paginate} /> </>} */}
+      <ProductList currentGames={currentGames} games={games} search={search} />
       <Pagination postsPerPage={postsPerPage} totalGames={games.length} paginate={paginate} />
     </section>
   )
