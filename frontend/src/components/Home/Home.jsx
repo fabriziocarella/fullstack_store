@@ -12,7 +12,8 @@ const Home = () => {
       try {
         axios.get(`http://localhost:5000/api/products/`)
           .then(response => {
-            setGames(games.concat(response.data))
+            setGames(games.concat(response.data))            
+            console.log(games);
           })
       } catch (e) {
         console.log(e);
@@ -46,7 +47,7 @@ const Home = () => {
         <input type="text" name="game_maker" placeholder="Search by game or console!" />
         <input type="button" value="Search!" />
       </div>
-      <ProductList videogames={games} />
+      <ProductList games={games} />
     </section>
   )
 };
