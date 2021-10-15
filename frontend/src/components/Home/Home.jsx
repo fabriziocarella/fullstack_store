@@ -31,17 +31,17 @@ const Home = () => {
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  const handleSort = (e) => {
-    currentGames.sort((prev, next) => {
-      if (prev.title > next.title) {
-        return 1
-      } else if (prev.title < next.title) {
-        return -1
-      }
-      return 0
-    });
-    setGames(0);
-  }
+  // const handleSort = (e) => {
+  //   currentGames.sort((prev, next) => {
+  //     if (prev.title > next.title) {
+  //       return 1
+  //     } else if (prev.title < next.title) {
+  //       return -1
+  //     }
+  //     return 0
+  //   });
+  //   setGames(0);
+  // }
 
   const handleChange = async (e) => {
     let value = e.target.value.toString()
@@ -52,12 +52,12 @@ const Home = () => {
       <p className="welcome">Insert the game you want to know more about them or just search by console!</p>
       <div className="inputs">
         <input type="text" name="game_maker" placeholder="Search by game or console!" onChange={handleChange} />
-        <select onChange={handleSort} defaultValue="sort" >
+        {/* <select onChange={handleSort} defaultValue="sort" >
           <option disabledValue="sort"></option>
           <option value="name">Name</option>
           <option value="rating">Rating</option>
           <option value="price">Price</option>
-        </select>
+        </select> */}
       </div>
       <article>
         <ProductList currentGames={currentGames} games={games} search={search} />
