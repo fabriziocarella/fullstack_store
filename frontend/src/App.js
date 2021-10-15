@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import React, { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom';
 import { productContext } from './context/productContext';
+import './styles/styles.scss'
 
 
 function App() {

@@ -3,7 +3,6 @@ import React from "react";
 import Card from '../Card'
 
 const ProductList = ({ currentGames, search, games }) => {
-
   return (
     <article className="cardContainer">
       {currentGames.filter((game) => {

@@ -20,7 +20,7 @@ const Card = (props) => {
         <h3 className="title">{title}</h3>
         <h5 className="sub_company">{company}</h5>
       </div>
-      <img src={productimage} alt={title} className="productimage" />
+      <img src={productimage} alt={title} className="productimage" width="150px" />
       <div className="rating_price">
         <span className="rating">{rating}/5</span>
         <span className="price">{price}</span>
