@@ -1,5 +1,5 @@
 .footer {
-    background-color: #3B5BA7;
+    background-color: #222222;
     width: 100%;
     height: 5vh;
     overflow: hidden;
@@ -18,7 +18,7 @@
     bottom: 0;
     div {
         width: 90%;
-        background-color:#FECA1B;
+        background-color:#7E1F00;
         justify-content: center;
         box-sizing: border-box;
         border-radius: 5px;
@@ -26,13 +26,14 @@
         -ms-border-radius: 5px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
-        border-color: black 3px;
+        border-color: whitesmoke 3px;
         border: solid;
+        color: whitesmoke;
     }
     div > a {
         text-decoration: none;
-        background: #FECA1B;
-        color: red;
+        background: #7E1F00;
+        color: whitesmoke;
         font-weight: bold;
     }
 }

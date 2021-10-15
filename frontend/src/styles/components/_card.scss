@@ -11,59 +11,57 @@
     -ms-border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    border-color: black 2px;
+    border-color: whitesmoke  2px;
     border: solid;
-    text-transform: capitalize;
+    color: whitesmoke;
 }
-.name_id {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.card_name {
-    padding: 5px;
-    font-size: 1.2rem;
-}
-.card_id {
-    padding: 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-.card_image {
-    width: 100%;
-    background: whitesmoke;
-    box-sizing: border-box;
-    border-top: black solid 1px;
-    border-bottom: black solid 1px; 
-}
-.types_abilities {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
+// .title_sub_company {
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+// }
+// .card_name {
+//     padding: 5px;
+//     font-size: 1.2rem;
+// }
+// .card_id {
+//     padding: 5px;
+//     font-size: 1.2rem;
+//     font-weight: bold;
+// }
+// .card_image {
+//     width: 100%;
+//     background: whitesmoke;
+//     box-sizing: border-box;
+//     border-top: black solid 1px;
+//     border-bottom: black solid 1px; 
+// }
+// .types_abilities {
+//     width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-around;
+// }
 
-.card_types {
-    width: 50%;
-    border-right: black solid 1px;;
-}
-.types_title, .abilities_title {
-    padding: 5px 0px;
-    border-bottom: black solid 1px; 
-    font-size: 1.1rem;
+// .card_types {
+//     width: 50%;
+//     border-right: black solid 1px;;
+// }
+// .types_title, .abilities_title {
+//     padding: 5px 0px;
+//     border-bottom: black solid 1px; 
+//     font-size: 1.1rem;
 
-}
-.card_abilities {
-    width: 50%;
-}
+// }
+// .card_abilities {
+//     width: 50%;
+// }
 
-.info {
-    border: none !important;
-    font-size: 1rem;
-    background-color: none !important;
-
-}
+// .info {
+//     border: none !important;
+//     font-size: 1rem;
+//     background-color: none !important;
+// }
 
 // Media Queries
 // TABLET
