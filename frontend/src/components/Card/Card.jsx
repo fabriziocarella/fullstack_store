@@ -11,8 +11,6 @@ const Card = (props) => {
     id_company: props.info.id_company,
     shortDesc: props.info.description.slice(0, 125).concat(`...`)
   }
-  // let images = props.info.productImage.map((img) => img)
-  // console.log(images);
   const { title, rating, company, productimage, price, description, shortDesc } = games
   return (
     <article className="card">
@@ -20,7 +18,7 @@ const Card = (props) => {
         <h3 className="title">{title}</h3>
         <h5 className="sub_company">{company}</h5>
       </div>
-      <img src={productimage} alt={title} className="productimage" />
+      <img src={productimage} alt={title} className="productimage" width="150px" />
       <div className="rating_price">
         <span className="rating">{rating}/5</span>
         <span className="price">{price}</span>

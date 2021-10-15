@@ -6,11 +6,14 @@ import Footer from './components/Footer/Footer';
 import React, { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom';
 import { productContext } from './context/productContext';
+import './styles/styles.scss'
 
 
 function App() {
   const [games, setGames] = useState([])
-  const videogames = { games, setGames }
+  const [ search, setSearch ] = useState("")
+
+  const videogames = { games, setGames, search, setSearch }
 
   return (
     <div className="app">

@@ -9,19 +9,15 @@ const Home = () => {
   const { games, setGames } = useContext(productContext)
   const { search, setSearch } = useContext(productContext)
 
-  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
 
   useEffect(() => {
     (() => {
       try {
-        setLoading(true);
         axios.get(`http://localhost:5000/api/products/`)
           .then(response => {
             setGames(games.concat(response.data))
-            setLoading(false);
-            // console.log(games);
           })
       } catch (e) {
         console.log(e);
@@ -34,21 +30,39 @@ const Home = () => {
   const currentGames = games.slice(indexOfFirstPost, indexOfLastPost);
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
-  // const handleChange = async (e) => {
-  //   setSearch(e.target.value)
-  //   await new Promise(resolve => setTimeout(resolve, 4000))
-  //   e.target.value = ""
-  // }
-  // onChange={handleChange}
+
+  const handleSort = (e) => {
+    currentGames.sort((prev, next) => {
+      if (prev.title > next.title) {
+        return 1
+      } else if (prev.title < next.title) {
+        return -1
+      }
+      return 0
+    });
+    setGames(0);
+  }
+
+  const handleChange = async (e) => {
+    let value = e.target.value.toString()
+    setSearch(value)
+  }
   return (
     <section className="home">
-      <p>Insert the game you want to know more about them or just search by console!</p>
-      <div>
-        <input type="text" name="game_maker" placeholder="Search by game or console!" />
-        <input type="button" value="Search!" />
+      <p className="welcome">Insert the game you want to know more about them or just search by console!</p>
+      <div className="inputs">
+        <input type="text" name="game_maker" placeholder="Search by game or console!" onChange={handleChange} />
+        <select onChange={handleSort} defaultValue="sort" >
+          <option disabledValue="sort"></option>
+          <option value="name">Name</option>
+          <option value="rating">Rating</option>
+          <option value="price">Price</option>
+        </select>
       </div>
-      <ProductList currentGames={currentGames} loading={loading} />
-      <Pagination postsPerPage={postsPerPage} totalGames={games.length} paginate={paginate} />
+      <article>
+        <ProductList currentGames={currentGames} games={games} search={search} />
+        <Pagination postsPerPage={postsPerPage} totalGames={games.length} paginate={paginate} />
+      </article>
     </section>
   )
 };

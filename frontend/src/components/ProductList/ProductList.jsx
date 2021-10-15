@@ -2,13 +2,16 @@ import React from "react";
 
 import Card from '../Card'
 
-const ProductList = ({ currentGames, loading }) => {
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
+const ProductList = ({ currentGames, search, games }) => {
   return (
     <article className="cardContainer">
-      {currentGames.map((game, i) => <Card info={game} key={i} />)}
+      {currentGames.filter((game) => {
+        if (search == "") {
+          return game
+        } else if (game.title.toString().toLowerCase().includes(search.toLowerCase()) || game.company.toString().toLowerCase().includes(search.toLowerCase())) {
+          return game
+        }
+      }).map((game, i) => <Card info={game} key={i} />)}
     </article>
   )
 };
