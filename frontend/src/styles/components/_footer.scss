@@ -1,0 +1,39 @@
+.footer {
+    background-color: #222222;
+    width: 100%;
+    height: 5vh;
+    overflow: hidden;
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-color: white 3px;
+    border: solid;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    div {
+        width: 90%;
+        background-color:#7E1F00;
+        justify-content: center;
+        box-sizing: border-box;
+        border-radius: 5px;
+        -o-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-color: whitesmoke 3px;
+        border: solid;
+        color: whitesmoke;
+    }
+    div > a {
+        text-decoration: none;
+        background: #7E1F00;
+        color: whitesmoke;
+        font-weight: bold;
+    }
+}

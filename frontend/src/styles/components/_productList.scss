@@ -1,0 +1,34 @@
+.cardContainer {    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    background: none;
+}
+
+
+// Media Queries
+// TABLET
+@media (min-width: 769px) {
+    .cardContainer {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+// LAPTOP
+@media (min-width: 1280px) {
+    .cardContainer {
+        flex-direction: row;
+        justify-content: center;
+
+    }
+}
+// MONITOR
+@media (min-width: 1920px) {
+    .cardContainer {
+        flex-direction: row;
+        justify-content: center;
+
+    }
+}

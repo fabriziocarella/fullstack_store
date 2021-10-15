@@ -1,30 +1,22 @@
-const mongoose = require('../utils/nosql_db')
+const pool = require('../utils/sql_db')
 
-const productSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true
+const products = {
+    getAllProducts: async () => {
+        try {
+            const response = await pool.query(`SELECT * FROM products`)
+            // console.log(response);
+            return response
+        } catch (err) {
+            console.log(err.stack)
+        }
     },
-    rating: {
-        type: Number,
-        required: true
-    },    
-    company: {
-        type: String,
-        required: true
-    },
-    productImage: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: Number,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-})
-
-module.exports = mongoose.model('products', productSchema)
+    // getProduct: async (title) => {
+    //     try {
+    //         const response = await pool.query('SELECT * FROM users WHERE title=$1', [title])
+    //         return response.rows
+    //     } catch (err) {
+    //         console.log(err.stack)
+    //     }
+    // }
+}
+module.exports = products
